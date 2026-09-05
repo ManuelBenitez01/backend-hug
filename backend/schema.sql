@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS lista_precios
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+USE lista_precios;
+
+CREATE TABLE IF NOT EXISTS products (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(160) NOT NULL,
+  descripcion TEXT NULL,
+  precio DECIMAL(12, 2) NOT NULL,
+  tipo VARCHAR(80) NOT NULL,
+  image_data MEDIUMBLOB NULL,
+  image_mime_type VARCHAR(100) NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  INDEX idx_products_tipo (tipo)
+);
