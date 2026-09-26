@@ -8,7 +8,7 @@
 4. Copiar `.env.example` a `.env`.
 5. Cambiar estas variables en `.env`:
    - `DB_USER` y `DB_PASSWORD`: usuario de MySQL del VPS.
-   - `CORS_ORIGIN`: dominio exacto del frontend, incluyendo `https://`.
+   - `CORS_ORIGIN=https://distribuidorala25.netlify.app`: origen exacto del frontend, sin barra final.
    - `SESSION_COOKIE_SAMESITE=none` si el frontend y la API están en dominios distintos, por ejemplo Netlify y Hostinger.
    - `JWT_SECRET`: una clave larga y aleatoria.
 6. Ejecutar `npm start`.
@@ -36,4 +36,4 @@ VITE_API_URL=https://api.tu-dominio.com
 3. Ejecutar `npm install` y `npm run build`.
 4. Subir el contenido de `dist` al dominio del frontend.
 
-El backend debe estar detrás de HTTPS y `CORS_ORIGIN` debe coincidir exactamente con el dominio publicado.
+El backend debe estar detrás de HTTPS y `CORS_ORIGIN` debe coincidir exactamente con el dominio publicado. En Netlify, configura `VITE_API_URL` con la URL HTTPS pública de este backend y vuelve a publicar el sitio. Las imágenes devueltas por la API usan rutas `/api/products/:id/image`, así que el frontend debe resolverlas contra esa misma URL base.
